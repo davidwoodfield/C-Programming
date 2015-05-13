@@ -35,7 +35,7 @@ int main()
     
     /*
      * Shift postDataSize >> 32 and store in filesize_multiplier
-     * This removes the first 32 bits, leaving the last 32 bits
+     * This removes the first 32 bits (left), leaving the last 32 bits (right most)
      *
      * Binary = 00000000 00000000 00000000 00000000
      *          00000010 00000010 00000010 00000010
@@ -59,6 +59,10 @@ int main()
      * Equilavent of doing bitwise & 0x00000000FFFFFFFF with postDateSize
      * This means the first 32bits (from the left) will be 0
      * and the last 32bits(from the left) will be unchanged
+     *
+     * Binary = 00000000 00000000 00000000 00000000
+     *          00000001 00000011 00110101 01010100 
+     *
      * Is this any different to simply casting postDataSize to an unsigned int?
      * cast to unsigned int and store in filesize_remainder
      */
@@ -66,6 +70,7 @@ int main()
     
     printf("\npostDataSize                        =    %llu", postDataSize);
     printf("\nfilesize_remainder                  =    %u", filesize_remainder);
+    printf("\npostDataSize cast as uint           =    %u", postDataSize);
     printf("\npostDataSize & 0xFFFFFFFF           =    %llu", (postDataSize & 0xFFFFFFFF));
     printf("\npostDataSize & 0x00000000FFFFFFFF   =    %llu", (postDataSize & 0x00000000FFFFFFFF));
     

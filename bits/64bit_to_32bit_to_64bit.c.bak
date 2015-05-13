@@ -2,7 +2,7 @@
 
 int main()
 {
-    printf("---- START ----\n");
+    printf("\n------------------------- START ----------------------------\n");
 
     /*
      * Start off with a 64 bit number
@@ -135,7 +135,7 @@ int main()
     
     printf("\nreceived_filesize                   =    %llu", received_filesize);
     
-    printf("\n\n----- END -----\n");
+    printf("\n\n------------------------- END ----------------------------\n");
     
     return 0;
 }
