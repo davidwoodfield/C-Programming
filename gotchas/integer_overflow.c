@@ -11,7 +11,10 @@ int main()
      * A quick demonstration of integer overflow.
      *
      * When the value of (random * pid) is greater than the maximum size of an
-     * integer, integer overflow happens
+     * integer, integer overflow happens. In two's complement the most
+     * significant bit will become a 1 and make the number a large negative
+     * number when an overflow happens. This of course depends on how far
+     * the integer overflows.
      */
      
     int pid = 20405;
