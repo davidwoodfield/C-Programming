@@ -63,7 +63,6 @@ int main()
     printf("\nfilesize_multiplier                 =    %u", filesize_multiplier);
     
     /*
-     *  (UINT) (wsub - (wsub2 * (ULONG64)0xFFFFFFFF))
      *
      * first set the value of wsub2 equal to wsub2 * (unsigned long long)0xFFFFFFFF
      *
@@ -105,9 +104,11 @@ int main()
      */
      
     /*
-     * = (unsigned long long)(FileSize_Mult * 0xFFFFFFFF) + FileSize_Remain
+     * filesize_multiplier must be cast to an unsigned long long first else the
+     * multiplication will be treated as an unsigned int and then when assigned
+     * to a unsigned long long only the first right most 32 bits will be copied.
      *
-     * filesize_multiplier * 0xFFFFFFFF
+     * received_filesize =  ((unsigned long long)filesize_multiplier) * 0xFFFFFFFF
      *
      *  =   00000010 00000010 00000010 00000010
      *    x
@@ -123,10 +124,8 @@ int main()
     printf("\nreceived_filesize                   =    %llu", received_filesize);
     
     /*
-     * = (unsigned long long)(FileSize_Mult * 0xFFFFFFFF) + FileSize_Remain
-     *
      * Now add on the filesize_remainder
-     *
+     * - because that's the reverse of what we did earlier
      * 
      */
     received_filesize += filesize_remainder;
