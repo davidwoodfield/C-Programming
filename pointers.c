@@ -1,4 +1,6 @@
-#include <stdio.h>
+#include <stdio.h>   
+#include <string.h>
+
 int main()
 {
 
@@ -27,6 +29,9 @@ ppA = &pA;
 /*
  * Characters and strings
  */
+memset(s,
+       0,
+       sizeof(s));
 c = 'x';
 strncpy(s,
         "hello",
@@ -34,21 +39,24 @@ strncpy(s,
 pS = &s;
 
 
-printf("\n ------ start of program ------ \n");
+printf("\n ------ start of program ------ \n");  
+
+
+printf("\n ------ INTEGERS ------ \n");
 
 printf("\n sizeof of a (sizeof(a)) = %u", sizeof(a));
-printf("\n address of a (&a) = %#08x", &a);
+printf("\n address of a (&a) = %p", &a);
 printf("\n value of a (a) = %d", a);
 
 printf("\n sizeof of a (sizeof(pA)) = %u", sizeof(pA));
-printf("\n address of pA (&pA) = %#08x", &pA);
-printf("\n value of pA (pA) = %#08x", pA);
+printf("\n address of pA (&pA) = %p", &pA);
+printf("\n value of pA (pA) = %p", pA);
 printf("\n the value of what pA points to (*pA) = %d", *pA);
 
 printf("\n sizeof of a (sizeof(ppA)) = %u", sizeof(ppA));
-printf("\n address of ppA (&ppA) = %#08x", &ppA);
-printf("\n value of ppA (ppA) = %#08x", ppA);
-printf("\n the value of what ppA points to (*ppA) = %#08x", *ppA);
+printf("\n address of ppA (&ppA) = %p", &ppA);
+printf("\n value of ppA (ppA) = %p", ppA);
+printf("\n the value of what ppA points to (*ppA) = %p", *ppA);
 printf("\n the value of the value of what ppA points to (**ppA) = %d", **ppA);
 
 printf("\n now change a to 8 via the pointer to the pointer ppA (**ppA = 8)");
@@ -56,7 +64,9 @@ printf("\n now change a to 8 via the pointer to the pointer ppA (**ppA = 8)");
 
 printf("\n value of a (a) = %d", a);
 printf("\n the value of what pA points to (*pA) = %d", *pA);
-printf("\n the value of the value of what ppA points to (**ppA) = %d", **ppA);
+printf("\n the value of the value of what ppA points to (**ppA) = %d", **ppA);      
+
+//printf("\n ------ CHARACTERS AND STRINGS ------ \n");
 
 
 
