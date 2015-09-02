@@ -15,7 +15,7 @@ int **ppA = NULL;
  * Characters and strings
  */
 char c;
-char s[6] = NULL;
+char s[6];
 char *pS = NULL;
 
 /*
@@ -36,7 +36,7 @@ c = 'x';
 strncpy(s,
         "hello",
         sizeof(s) - 1);
-pS = &s;
+pS = s;  // or pS = &s[0];
 
 
 printf("\n ------ start of program ------ \n");  
@@ -77,4 +77,5 @@ printf("\n\n ------ end of program ------ \n");
 
 
 return 0;
-}                      
+}   
+                   
