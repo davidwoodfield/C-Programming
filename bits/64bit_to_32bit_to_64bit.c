@@ -16,6 +16,7 @@ int main()
      *
      * Why?
      *
+     * Because some platforms might not support 64 bit numbers.
      */
 
     /*
