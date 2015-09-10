@@ -1,6 +1,20 @@
 #include <stdio.h>   
 #include <string.h>
 
+/*
+ * Standard variables have two values:
+ *
+ * 1. An address value - the place in memory the 
+ *                       variables is stored.
+ *                        
+ * 2. An object value - the data stored at it's
+ *                      address value.
+ *
+ *
+ * A pointer is a special variable that holds a memory address
+ *
+ */
+
 int main()
 {
 
